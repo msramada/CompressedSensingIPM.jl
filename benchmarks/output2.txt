@@ -1,0 +1,4 @@
+Running IPM on GPU for size: 512 x 512 x 512
+Generate x: ✓
+Generate y: ✓
+Generate missing indices: ✓
