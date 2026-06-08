@@ -19,7 +19,9 @@ if run_admm_gpu
                          (384, 384, 384), (512, 512, 512), (560, 560, 560)]
 
         println("Running ADMM on GPU for size: $N1 x $N2 x $N3")
-        results, timer = admm_example_3D(N1, N2, N3; gpu=true, gpu_arch="cuda", rdft=true, check=false)
+        results, timer = redirect_stdout(devnull) do
+            admm_example_3D(N1, N2, N3; gpu=true, gpu_arch="cuda", rdft=true, check=false)
+        end
         println("Timer: $(timer)")
     end
 end
@@ -31,7 +33,9 @@ if run_admm_cpu
                          (384, 384, 384), (512, 512, 512), (560, 560, 560)]
 
         println("Running ADMM on CPU for size: $N1 x $N2 x $N3")
-        results, timer = admm_example_3D(N1, N2, N3; gpu=false)
+        results, timer = redirect_stdout(devnull) do
+            admm_example_3D(N1, N2, N3; gpu=false)
+        end
         println("Timer: $(timer)")
     end
 end

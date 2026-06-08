@@ -8,7 +8,7 @@ include("../test/punching_centering.jl")
 include("../test/ipm_example_3D.jl")
 
 # CPU
-run_cpu = false
+run_cpu = true
 rdft_cpu = true
 check_cpu = false
 
@@ -19,13 +19,15 @@ if run_cpu
                          (384, 384, 384), (512, 512, 512), (560, 560, 560)]
 
         println("Running IPM on CPU for size: $N1 x $N2 x $N3")
-        nlp, solver, results, timer = ipm_example_3D(N1, N2, N3; gpu=false, rdft=rdft_cpu, check=check_cpu)
+        nlp, solver, results, timer = redirect_stdout(devnull) do
+            ipm_example_3D(N1, N2, N3; gpu=false, rdft=rdft_cpu, check=check_cpu)
+        end
         println("Timer: $(timer)")
     end
 end
 
 # GPU
-run_gpu = false
+run_gpu = true
 rdft_gpu = true
 check_gpu = false
 gpu_arch = "cuda"  # "rocm"
@@ -37,15 +39,18 @@ if run_gpu
                          (384, 384, 384), (512, 512, 512), (560, 560, 560)]
 
         println("Running IPM on GPU for size: $N1 x $N2 x $N3")
-        nlp, solver, results, timer = ipm_example_3D(N1, N2, N3; gpu=true, gpu_arch, rdft=rdft_gpu, check=check_gpu)
+        nlp, solver, results, timer = redirect_stdout(devnull) do
+            ipm_example_3D(N1, N2, N3; gpu=true, gpu_arch, rdft=rdft_gpu, check=check_gpu)
+        end
         println("Timer: $(timer)")
     end
 end
 
-
+"""
 for (N1, N2, N3) in [(512, 512, 512), (560, 560, 560)]
 
     println("Running IPM on GPU for size: $N1 x $N2 x $N3")
     nlp, solver, results, timer = ipm_example_3D(N1, N2, N3; gpu=true, gpu_arch, rdft=rdft_gpu, check=check_gpu)
     println("Timer: $(timer)")
 end
+"""
