@@ -2,3 +2,7 @@ Manifest.toml
 docs/build
 *.log
 
+# Claude Code
+CLAUDE.md
+.claude/
+

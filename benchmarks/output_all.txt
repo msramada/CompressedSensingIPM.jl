@@ -1,0 +1,38 @@
+Running IPM benchmarks...
+Running IPM on CPU for size: 8 x 8 x 8
+Timer: 10.791406154632568
+IPM iterations: 10
+Krylov iterations: [1, 5, 7, 8, 8, 8, 7, 7, 6, 5] (total=62, calls=10)
+Running IPM on CPU for size: 8 x 8 x 8
+Timer: 0.001795053482055664
+IPM iterations: 10
+Krylov iterations: [1, 5, 7, 8, 8, 8, 7, 7, 6, 6] (total=63, calls=10)
+Running IPM on CPU for size: 16 x 16 x 16
+Timer: 0.011036872863769531
+IPM iterations: 10
+Krylov iterations: [1, 6, 8, 9, 10, 9, 8, 7, 7, 5] (total=70, calls=10)
+Running IPM on CPU for size: 32 x 32 x 32
+Timer: 0.13422513008117676
+IPM iterations: 10
+Krylov iterations: [1, 5, 7, 8, 8, 8, 7, 7, 6, 5] (total=62, calls=10)
+Running IPM on CPU for size: 64 x 64 x 64
+Timer: 2.865885019302368
+IPM iterations: 11
+Krylov iterations: [1, 5, 7, 8, 9, 8, 8, 7, 6, 5, 4, 4, 4, 4, 4, 4, 3, 3, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] (total=120, calls=38)
+Running IPM on CPU for size: 96 x 96 x 96
+Timer: 6.679857015609741
+IPM iterations: 12
+Krylov iterations: [1, 6, 7, 8, 8, 8, 8, 6, 6, 6, 5, 4] (total=73, calls=12)
+Running IPM on CPU for size: 128 x 128 x 128
+Timer: 15.85833215713501
+IPM iterations: 11
+Krylov iterations: [1, 6, 7, 8, 8, 8, 8, 7, 6, 6, 5] (total=70, calls=11)
+Running IPM on CPU for size: 192 x 192 x 192
+Timer: 63.27335977554321
+IPM iterations: 12
+Krylov iterations: [1, 6, 7, 8, 8, 8, 8, 8, 7, 6, 5, 4] (total=76, calls=12)
+Running IPM on CPU for size: 256 x 256 x 256
+Timer: 161.18196606636047
+IPM iterations: 12
+Krylov iterations: [1, 6, 7, 8, 8, 8, 8, 8, 7, 6, 5, 4] (total=76, calls=12)
+Running IPM on CPU for size: 384 x 384 x 384

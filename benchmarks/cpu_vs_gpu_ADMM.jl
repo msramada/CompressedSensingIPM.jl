@@ -11,6 +11,8 @@ include("../test/admm_example_3D.jl")
 
 run_admm_cpu = true
 run_admm_gpu = true
+admm_cpu_records = NamedTuple[]
+admm_gpu_records = NamedTuple[]
 
 if run_admm_gpu
     for (N1, N2, N3) in [(8, 8, 8), (8, 8, 8), (16, 16, 16),
@@ -23,6 +25,7 @@ if run_admm_gpu
             admm_example_3D(N1, N2, N3; gpu=true, gpu_arch="cuda", rdft=true, check=false)
         end
         println("Timer: $(timer)")
+        push!(admm_gpu_records, (N1=N1, N2=N2, N3=N3, timer=timer))
     end
 end
 
@@ -37,5 +40,6 @@ if run_admm_cpu
             admm_example_3D(N1, N2, N3; gpu=false)
         end
         println("Timer: $(timer)")
+        push!(admm_cpu_records, (N1=N1, N2=N2, N3=N3, timer=timer))
     end
 end

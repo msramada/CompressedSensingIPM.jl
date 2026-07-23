@@ -99,11 +99,9 @@ nlp, solver, results, timer = mastodonte(z0, mask; lambda, gpu, gpu_arch, rdft)
 N = length(results.solution) ÷ 2
 beta_MadNLP = results.solution[1:N]
 println("Timer: $(timer)")
-
-# solver.kkt.krylov_iterations
-# solver.kkt.krylov_timer
-# nlp.fft_timer[]
-# nlp.mapping_timer[]
+krylov_iters = solver.kkt.krylov_iterations
+println("IPM iterations: $(solver.cnt.k)")
+println("Krylov iterations: $(krylov_iters) (total=$(sum(krylov_iters)), calls=$(length(krylov_iters)))")
 
 # Dump the solution in a file
 dump_solution = true
